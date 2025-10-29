@@ -12,22 +12,18 @@ app.setErrorHandler((error, request, reply) => {
   const message =
     error instanceof BaseException ? error.message : 'Internal error';
 
-  let context: Record<string, any> | undefined;
-
-  if (error instanceof BaseException) {
-    context = {
-      http: {
-        path: request.url,
-        method: request.method,
-        request: {
-          id: request.id,
-          queryParams: request.query,
-          pathParams: request.params,
-          body: request.body,
-        },
+  const context = {
+    http: {
+      path: request.url,
+      method: request.method,
+      request: {
+        id: request.id,
+        queryParams: request.query,
+        pathParams: request.params,
+        body: request.body,
       },
-    };
-  }
+    },
+  };
 
   logger.error(error, context);
   reply.status(500).send({ message });
