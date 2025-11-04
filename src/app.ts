@@ -1,8 +1,8 @@
 import fastifyCors from '@fastify/cors';
 import fastify from 'fastify';
-import { BaseException } from './exception';
-import { logger } from './logger';
-import { DoSomethingService } from './service';
+import { BaseException } from './common/exception';
+import { useCase } from './infra/!ioc/use-case';
+import { logger } from './infra/lib/logging/logger';
 
 export const app = fastify();
 
@@ -30,7 +30,6 @@ app.setErrorHandler((error, request, reply) => {
 });
 
 app.get('/', async (_, reply) => {
-  const doSomethingService = new DoSomethingService();
-  await doSomethingService.execute({ foo: 0, bar: 1 });
+  await useCase.execute();
   return reply.send({ message: 'OK' });
 });

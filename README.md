@@ -22,10 +22,20 @@ Logs estruturados são cruciais em aplicações modernas por várias razões:
 
 4. **Múltiplos Destinos de Transporte** - Demonstra como enviar logs para diferentes destinos (console, arquivos, envio de email, serviços externos) mantendo o mesmo formato estruturado.
 
-5. **Performance** - Fazer o logging de forma assíncrona é essencial para não ter problemas de performance
+5. **Performance** - Fazer o logging de forma assíncrona é essencial para não ter problemas de performance, utilizei a lib pino por esse motivo
+
+## Boas práticas implementadas
+1. **Não expor camada de infraestrutura** - As exceções são tratadas de forma que a mensagem final devolvida pela api seja genérica, sem expor detalhes de implementação
+
+2. **Tratamento** - É utilizado um wrapper para enriquecer os erros, após o tratamento o erro é disparado para cima até que chegue num handler que esteja em mais alto nível
 
 ## Testar
 ```
 npm i
 npm run start
+curl http://localhost:3000
 ```
+
+> resultado
+
+!['example-image'](./assets/image.png)

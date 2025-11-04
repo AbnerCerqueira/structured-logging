@@ -1,5 +1,5 @@
 import { app } from './app';
-import { logger } from './logger';
+import { logger } from './infra/lib/logging/logger';
 
 process.env.TZ = 'UTC';
 

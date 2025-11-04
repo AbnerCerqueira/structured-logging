@@ -1,13 +1,14 @@
 {
   "name": "structured-logging",
   "version": "1.0.0",
-  "description": "",
+  "description": "Example of structured logging",
   "main": "src/main.ts",
   "keywords": [],
   "author": "Abner Cerqueira",
   "license": "ISC",
   "type": "commonjs",
   "scripts": {
+    "build": "tsc -p tsconfig.json",
     "start": "tsx src/main.ts"
   },
   "devDependencies": {

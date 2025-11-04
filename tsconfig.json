@@ -17,10 +17,9 @@
     "skipLibCheck": true,
     "moduleResolution": "node16",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "outDir": "dist"
   }
 }
